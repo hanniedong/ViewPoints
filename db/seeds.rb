@@ -9,11 +9,9 @@ Posting.destroy_all
     first_name: Faker::Name.name,
     last_name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: 'password',
+    password_digest: 'password',
   })
 end
-
-Posting.destroy_all
 
 coords_arr = [[37.774929, -122.419416],
               [37.496341, -122.075454],
@@ -31,12 +29,12 @@ coords_arr = [[37.774929, -122.419416],
               [37.647375, -122.192741],
               [37.655194, -122.184587],
               [37.651127, -122.192398],
-              [37.675537, -122.299515],
+              [37.675537, -122.299515]]
 
 
 coords_arr.each do |coord|
   Posting.create({ 
-                user_id: [1..15].sample
+                user_id: [1..15].sample,
                 latitude: coord[0],
                 longitude:coord[1],
                 likes: [1..15].sample

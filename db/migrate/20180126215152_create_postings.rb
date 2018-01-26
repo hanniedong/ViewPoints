@@ -5,6 +5,7 @@ class CreatePostings < ActiveRecord::Migration[5.1]
       t.string :latitude, null: false
       t.string :longitude, null: false
       t.integer :likes
+      t.integer :user_id
       t.timestamps
     end
   end
