@@ -34,10 +34,16 @@ coords_arr = [[37.774929, -122.419416],
 
 coords_arr.each do |coord|
   Posting.create({ 
-                user_id: [1..15].sample,
+                user_id: rand(15),
                 latitude: coord[0],
                 longitude:coord[1],
-                likes: [1..15].sample
+                likes: rand(20)
                 })
 end
 
+
+  Favorite.create!({
+    :user_id => rand(15),
+    :posting_id => rand(15),
+    :favorited => true 
+  })
