@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'faker'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'react_on_rails', '6.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
