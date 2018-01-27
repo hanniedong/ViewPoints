@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20180126215931) do
   end
 
   create_table "postings", force: :cascade do |t|
-    t.string "latitude", null: false
-    t.string "longitude", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.integer "likes"
     t.integer "user_id"
     t.datetime "created_at", null: false
