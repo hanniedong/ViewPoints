@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Header from './Header'
+import MapContainer from './MapContainer'
 
-class HomePage extends Component {
+export default class HomePage extends Component {
   render() {
+
     return (
       <div>
-        <Header />
+      <Header />
+      <MapContainer />
       </div>
     );
   }
 }
-
-export default HomePage;
