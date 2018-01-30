@@ -6,6 +6,7 @@ class Api::PostingsController < ApplicationController
   end
 
   private
+  
   def search_params
     params.permit(:min_lng, :max_lng, :min_lat, :max_lat)
   end

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withGoogleMap, GoogleMap } from 'react-google-maps'
 import { PlaceMarker } from './PlaceMarker'
+import { axios } from 'axios'
 
 const ViewMap = withGoogleMap(props => (
   <GoogleMap
@@ -64,8 +65,11 @@ export default class Map extends Component {
   }
 
   fetchPlacesFromApi() {
-    const place = <PlaceMarker lat={37.781555} lng={-122.393990} name={"Park"} />
-    this.setState({ places: [place] })
+    var self = this;
+    axios.get(`http://localhost:3000/api/postings?min_lng=${this.xMapBounds.min}&max_lng=${this.xMapBounds.max}&min_lat=${this.yMapBounds.min}&max_lat=${this.yMapBounds.max}`) 
+    .then(function(response){
+      self.setState({ places: [place] })
+    }) 
   }
  
   getMapBounds() {
