@@ -14,6 +14,7 @@ export default class GoogleMap extends Component {
         lng: lng
       }
     }
+    this.renderChildren= this.renderChildren.bind(this)
   }
 
   componentDidMount() {
@@ -77,6 +78,20 @@ export default class GoogleMap extends Component {
     // ...
   }
 
+  renderChildren() {
+    const {children} = this.props;
+
+    if (!children) return;
+
+    return React.Children.map(children, c => {
+      return React.cloneElement(c, {
+        map: this.map,
+        google: this.props.google,
+        mapCenter: this.state.currentLocation
+      });
+    })
+  }
+
   render() {
     const style = {
       width: '100vw',
@@ -85,6 +100,7 @@ export default class GoogleMap extends Component {
     return (
       <div ref='map' style= {style}>
         Loading map...
+        {this.renderChildren()}
       </div>
     )
   }
