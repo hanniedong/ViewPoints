@@ -24,10 +24,10 @@ export default class Map extends Component {
  
   render() {
     const {lat, lng} = this.state;
-    const places = [<PlaceMarker lat={lat} lng={lng} />]
+    const places = [<PlaceMarker lat={lat} lng={lng} price={20} name={"Hotel"} description={"Hotel desc"} />]
     return(
       <div style={{width: `750px`, height: `750px`}}>
-        <AirbnbMap
+        <ViewMap
           center={{
             lat: lat,
             lng: lng
