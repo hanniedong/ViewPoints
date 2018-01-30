@@ -11,7 +11,7 @@ export default class Form extends Component {
         <input type="text" name="name" />
         </label>
         <input type="submit" value="Submit" />
-      </form>
+    </form>
     );
   }
 };
