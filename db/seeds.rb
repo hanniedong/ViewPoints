@@ -37,6 +37,8 @@ coords_arr.each do |coord|
                 user_id: rand(15),
                 latitude: coord[0],
                 longitude:coord[1],
+                description: Faker::Lorem.paragraph(2),
+                name: Faker::Address.street_name,
                 likes: rand(20)
                 })
 end
