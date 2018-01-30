@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "formsy-react": "^1.1.2",
     "google-maps-react": "^1.1.2",
     "imports": "^1.0.0",
     "prop-types": "^15.6.0",

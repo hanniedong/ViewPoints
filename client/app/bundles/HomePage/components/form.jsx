@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
-class Form extends Component {
+
+export default class Form extends Component {
+
   render() {
     return (
-      <div>
-        <h1> Form </h1>
-      </div>
+      <form>
+        <label>
+          Location:
+        <input type="text" name="name" />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
     );
   }
-}
-
-export default Form;
-
+};
