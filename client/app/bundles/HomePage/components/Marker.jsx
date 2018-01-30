@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 export default class Marker extends Component {
   constructor(props) {
     super(props);
+    this.state ={
+      locations: []
+    }
   }
 
+  componentWillMount(){
+    var self = this
+    var url = 'http://localhost:3000/api/postings'
+    axios.get(url)
+    .then(function(response) {
+      this.setState({locations: response.data})
+    })
+    .catch(function(error) {
+      console.log(error);
+    })
+  }
+  
   componentDidUpdate(prevProps) {
     if ((this.props.map !== prevProps.map) ||
       (this.props.position !== prevProps.position)) {
