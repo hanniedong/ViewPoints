@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 export default class GoogleMap extends Component {
 
@@ -12,25 +13,13 @@ export default class GoogleMap extends Component {
       currentLocation: {
         lat: lat,
         lng: lng
-      }
+      },
+      map: {}
     }
-    this.renderChildren= this.renderChildren.bind(this)
+    this.loadMap = this.loadMap.bind(this)
   }
 
   componentDidMount() {
-    if (this.props.centerAroundCurrentLocation == false) {
-        if (navigator && navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((pos) => {
-                const coords = pos.coords;
-                this.setState({
-                    currentLocation: {
-                        lat: coords.latitude,
-                        lng: coords.longitude
-                    }
-                })
-            })
-        }
-    }
     this.loadMap();
   }
 
@@ -38,23 +27,8 @@ export default class GoogleMap extends Component {
     if (prevProps.google !== this.props.google) {
       this.loadMap();
     }
-    if (prevState.currentLocation !== this.state.currentLocation) {
-      this.recenterMap();
-    }
   }
 
-  recenterMap() {
-    const map = this.map;
-    const curr = this.state.currentLocation;
-
-    const google = this.props.google;
-    const maps = google.maps;
-
-    if (map) {
-        let center = new maps.LatLng(curr.lat, curr.lng)
-        map.panTo(center)
-    }
-  }
 
   loadMap() {
     if (this.props && this.props.google) {
@@ -66,26 +40,25 @@ export default class GoogleMap extends Component {
       const node = ReactDOM.findDOMNode(mapRef);
 
       let {initialCenter, zoom} = this.props;
-      console.log(this.props)
       const {lat, lng} = initialCenter;
       const center = new maps.LatLng(lat, lng);
-      const mapConfig = Object.assign({}, {
+      const mapConfig = {
         center: center,
         zoom: zoom
-      })
-      this.map = new maps.Map(node, mapConfig);
+      }
+      this.map =  new maps.Map(node, mapConfig);
+      
     }
-    // ...
+    this.forceUpdate.bind(this)
   }
 
   renderChildren() {
     const {children} = this.props;
-
     if (!children) return;
-
     return React.Children.map(children, c => {
       return React.cloneElement(c, {
-        map: this.map,
+        map: this.props.map,
+        zoom: this.props.zoom,
         google: this.props.google,
         mapCenter: this.state.currentLocation
       });
@@ -109,7 +82,6 @@ GoogleMap.propTypes = {
   google: PropTypes.object,
   zoom: PropTypes.number,
   initialCenter: PropTypes.object,
-  centerAroundCurrentLocation: PropTypes.bool
 }
 
 GoogleMap.defaultProps = {
@@ -118,6 +90,5 @@ GoogleMap.defaultProps = {
   initialCenter: {
     lat: 37.774929,
     lng: -122.419416
-  },
-  centerAroundCurrentLocation: false
+  }
 }
