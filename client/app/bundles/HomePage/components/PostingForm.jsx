@@ -5,20 +5,26 @@ class PostingForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
-      address: 'San Francisco, CA',
+      address: '',
       name: '',
-      description: ''
+      description: '',
+      latitude:'',
+      longitude: '',
     }
-    this.onChange = (address) => this.setState({ address })
   }
 
-  handleFormSubmit = (event) => {
-    event.preventDefault()
+  handleFormSubmit = (e) => {
+    e.preventDefault()
+    this.createPosting({
+      name: this.state.name, 
+      description: this.state.description,
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
+    })
+  }
 
-    geocodeByAddress(this.state.address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
-      .catch(error => console.error('Error', error))
+  createPosting(name, description, latitude, longitude){
+    console.log(name, description, latitude, longitude)
   }
 
   handleInputChange = (e) => {
@@ -30,10 +36,20 @@ class PostingForm extends React.Component {
     });
   }
 
+  locationOnChange = (address) => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => this.setState({ latitude: latLng.lat, longitude: latLng.lng}))
+      .catch(error => console.error('Error', error))
+    this.setState({ address });
+  };
+
+
   render() {
     const inputProps = {
       value: this.state.address,
-      onChange: this.onChange,
+      onChange: this.locationOnChange,
+      placeholder: 'View Location',
     }
 
   return (
