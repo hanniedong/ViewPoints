@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withGoogleMap, GoogleMap } from 'react-google-maps'
 import { PlaceMarker } from './PlaceMarker'
-import { axios } from 'axios'
+import axios from 'axios'
 
 const ViewMap = withGoogleMap(props => (
   <GoogleMap
@@ -12,13 +12,13 @@ const ViewMap = withGoogleMap(props => (
     defaultCenter={props.center}
     defaultZoom={props.zoom} 
   >
-        {console.log(props)}
     {props.places.length > 0 && props.places.map(place =>(
-      <PlaceMarker 
-        lat={37.781555}
-        lng= {-122.393990}
-        name= {'Park'}
-      />
+        <PlaceMarker key={`place${place.id}`}
+                     id={place.id}
+                     lat={place.latitude}
+                     lng={place.longitude}
+                     description={place.description}
+                     name={place.name} />
     ))}
   </GoogleMap>
 ));
@@ -66,9 +66,11 @@ export default class Map extends Component {
 
   fetchPlacesFromApi() {
     var self = this;
-    axios.get(`http://localhost:3000/api/postings?min_lng=${this.xMapBounds.min}&max_lng=${this.xMapBounds.max}&min_lat=${this.yMapBounds.min}&max_lat=${this.yMapBounds.max}`) 
+    var url = `http://localhost:3000/api/postings?min_lng=${this.xMapBounds.min}&max_lng=${this.xMapBounds.max}&min_lat=${this.yMapBounds.min}&max_lat=${this.yMapBounds.max}`
+    var all_url = 'http://localhost:3000/api/postings'
+    axios.get(url) 
     .then(function(response){
-      self.setState({ places: [place] })
+      self.setState({ places: response.data})
     }) 
   }
  
@@ -80,12 +82,13 @@ export default class Map extends Component {
     this.xMapBounds.min = xMapBounds.b
     this.xMapBounds.max = xMapBounds.f
  
-    this.yMapBounds.min = yMapBounds.f
-    this.yMapBounds.max = yMapBounds.b
+    this.yMapBounds.min = yMapBounds.b
+    this.yMapBounds.max = yMapBounds.f
   }
  
   render() {
     const {lat, lng, places} = this.state;
+    console.log(this.state)
     return(
       <div style={{width: `750px`, height: `750px`}}>
         <ul>
