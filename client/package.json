@@ -38,6 +38,7 @@
     "react-dom": "^15.4.1",
     "react-google-maps": "^7.3.0",
     "react-on-rails": "6.4.2",
+    "react-places-autocomplete": "^6.0.2",
     "webpack": "^1.14.0"
   },
   "devDependencies": {}

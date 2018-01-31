@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { withGoogleMap, GoogleMap } from 'react-google-maps'
 import { PlaceMarker } from './PlaceMarker'
-import { SearchBar } from './SearchBar'
 import axios from 'axios'
 import SearchBox from 'react-google-maps/lib/places/SearchBox'
 
@@ -121,7 +120,6 @@ export default class Map extends Component {
   handlePlacesChanged(){
     var places =  this.searchbox.getPlaces()
     const bounds = new google.maps.LatLngBounds();
-    console.log(bounds)
     this.setState({
       latitude: bounds.lat,
       longitude: bounds.long,
@@ -134,19 +132,13 @@ export default class Map extends Component {
       }
     this.map.fitBounds(bounds);
     this.handleMapChanged();
-
     })
   }
 
   render() {
     const {lat, lng, places} = this.state;
-    console.log(this.state)
     return(
       <div style={{width: `600px`, height: `500px`}}>
-        <ul>
-          <li>lng: {lng}</li>
-          <li>lat: {lat}</li>
-        </ul>
         <ViewMap
           onMapMounted={this.handleMapMounted.bind(this)}
           handleMapChanged={this.handleMapChanged.bind(this)}
