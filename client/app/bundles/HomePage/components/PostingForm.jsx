@@ -24,7 +24,19 @@ class PostingForm extends React.Component {
   }
 
   createPosting(name, description, latitude, longitude){
-    console.log(name, description, latitude, longitude)
+    axios.post("/users", {
+        name: name,
+        description: description,
+        latitude: latitude,
+        longitude: longitude,
+        user_id: 1
+      })
+    .then(function(response) {
+      window.location="/";
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
   }
 
   handleInputChange = (e) => {
