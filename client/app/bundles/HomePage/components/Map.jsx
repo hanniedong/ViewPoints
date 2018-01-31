@@ -76,7 +76,6 @@ export default class Map extends Component {
 
   handleSearchBoxMounted(searchbox){
     this.searchbox = searchbox
-    console.log(searchbox)
   }
 
   handleMapFullyLoaded() {

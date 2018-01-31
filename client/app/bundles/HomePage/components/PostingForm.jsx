@@ -1,6 +1,6 @@
 import React from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
-
+import axios from 'axios';
 class PostingForm extends React.Component {
   constructor(props) {
     super(props)
@@ -15,16 +15,13 @@ class PostingForm extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault()
-    this.createPosting({
-      name: this.state.name, 
-      description: this.state.description,
-      latitude: this.state.latitude,
-      longitude: this.state.longitude
-    })
+    this.createPosting(this.state.name, this.state.description,this.state.latitude,this.state.longitude)
   }
 
   createPosting(name, description, latitude, longitude){
-    axios.post("/users", {
+    var self = this;
+    var url = 'http://localhost:3000/api/postings'
+    axios.post(url, {
         name: name,
         description: description,
         latitude: latitude,
@@ -32,7 +29,7 @@ class PostingForm extends React.Component {
         user_id: 1
       })
     .then(function(response) {
-      window.location="/";
+      window.location = "/hello_world";;
     })
     .catch(function(error) {
       console.log(error);
