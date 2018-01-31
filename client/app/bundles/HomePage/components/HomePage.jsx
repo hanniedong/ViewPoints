@@ -10,11 +10,11 @@ class HomePage extends Component {
       <div className = 'container'>
         <Header />
         <div className = 'row'>
-          <div className = 'col-sm-6'>
-            <PostingForm />
-          </div>
-          <div className = 'col-sm-6'>
+          <div className = 'col-md-7'>
             <Map />
+          </div>
+          <div className = 'col-md-5'>
+            <PostingForm />
           </div>
         </div>
       </div>

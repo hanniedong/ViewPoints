@@ -37,7 +37,11 @@ class PostingForm extends React.Component {
     }
 
   return (
-    <form onSubmit={this.handleFormSubmit}>
+
+    <div >
+    <h3> Add a View </h3>
+      <form onSubmit={this.handleFormSubmit}>
+      
       <div className="form-group">
         <input
             className = 'form-control'
@@ -61,6 +65,7 @@ class PostingForm extends React.Component {
       </div>
         <button className="btn btn-default" type="submit">Submit</button>
       </form>
+    </div>
     )
   }
 }
