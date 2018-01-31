@@ -18,7 +18,8 @@ const ViewMap = withGoogleMap(props => (
                      lat={place.latitude}
                      lng={place.longitude}
                      description={place.description}
-                     name={place.name} />
+                     name={place.name}
+                     likes = {place.likes} />
     ))}
   </GoogleMap>
 ));
@@ -94,10 +95,6 @@ export default class Map extends Component {
         <ul>
           <li>lng: {lng}</li>
           <li>lat: {lat}</li>
-          <li>xMapBounds.min: {this.xMapBounds.min}</li>
-          <li>xMapBounds.max: {this.xMapBounds.max}</li>
-          <li>yMapBounds.min: {this.yMapBounds.min}</li>
-          <li>yMapBounds.max: {this.yMapBounds.max}</li>
         </ul>
         <ViewMap
           onMapMounted={this.handleMapMounted.bind(this)}
