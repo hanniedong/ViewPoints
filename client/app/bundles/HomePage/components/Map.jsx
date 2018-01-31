@@ -91,7 +91,7 @@ export default class Map extends Component {
     const {lat, lng, places} = this.state;
     console.log(this.state)
     return(
-      <div style={{width: `750px`, height: `750px`}}>
+      <div style={{width: `500px`, height: `500px`}}>
         <ul>
           <li>lng: {lng}</li>
           <li>lat: {lat}</li>
