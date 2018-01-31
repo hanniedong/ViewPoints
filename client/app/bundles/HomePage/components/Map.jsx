@@ -1,7 +1,24 @@
 import React, { Component } from 'react'
 import { withGoogleMap, GoogleMap } from 'react-google-maps'
 import { PlaceMarker } from './PlaceMarker'
+import { SearchBar } from './SearchBar'
 import axios from 'axios'
+import SearchBox from 'react-google-maps/lib/places/SearchBox'
+
+const INPUT_STYLE = {
+  boxSizing: `border-box`,
+  MozBoxSizing: `border-box`,
+  border: `1px solid transparent`,
+  width: `240px`,
+  height: `32px`,
+  marginTop: `27px`,
+  padding: `0 12px`,
+  borderRadius: `1px`,
+  boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+  fontSize: `14px`,
+  outline: `none`,
+  textOverflow: `ellipses`,
+};
 
 const ViewMap = withGoogleMap(props => (
   <GoogleMap
@@ -13,14 +30,22 @@ const ViewMap = withGoogleMap(props => (
     defaultZoom={props.zoom} 
   >
     {props.places.length > 0 && props.places.map(place =>(
-        <PlaceMarker key={`place${place.id}`}
-                     id={place.id}
-                     lat={place.latitude}
-                     lng={place.longitude}
-                     description={place.description}
-                     name={place.name}
-                     likes = {place.likes} />
+    <PlaceMarker key={`place${place.id}`}
+                 id={place.id}
+                 lat={place.latitude}
+                 lng={place.longitude}
+                 description={place.description}
+                 name={place.name}
+                 likes = {place.likes} />
     ))}
+    <SearchBox
+      ref={props.onSearchBoxMounted}
+      bounds={props.bounds}
+      controlPosition={google.maps.ControlPosition.TOP_LEFT}
+      onPlacesChanged={props.onPlacesChanged}
+      inputStyle={INPUT_STYLE}
+    >
+    </SearchBox>
   </GoogleMap>
 ));
  
@@ -46,8 +71,13 @@ export default class Map extends Component {
     this.fetchPlacesFromApi()
   }
  
-   handleMapMounted(map) {
+  handleMapMounted(map) {
     this.map = map
+  }
+
+  handleSearchBoxMounted(searchbox){
+    this.searchbox = searchbox
+    console.log(searchbox)
   }
 
   handleMapFullyLoaded() {
@@ -86,7 +116,28 @@ export default class Map extends Component {
     this.yMapBounds.min = yMapBounds.b
     this.yMapBounds.max = yMapBounds.f
   }
- 
+
+
+  handlePlacesChanged(){
+    var places =  this.searchbox.getPlaces()
+    const bounds = new google.maps.LatLngBounds();
+    console.log(bounds)
+    this.setState({
+      latitude: bounds.lat,
+      longitude: bounds.long,
+    })
+    places.forEach(place => {
+      if (place.geometry.viewport) {
+        bounds.union(place.geometry.viewport)
+      } else {
+        bounds.extend(place.geometry.location)
+      }
+    this.map.fitBounds(bounds);
+    this.handleMapChanged();
+
+    })
+  }
+
   render() {
     const {lat, lng, places} = this.state;
     console.log(this.state)
@@ -100,6 +151,9 @@ export default class Map extends Component {
           onMapMounted={this.handleMapMounted.bind(this)}
           handleMapChanged={this.handleMapChanged.bind(this)}
           handleMapFullyLoaded={this.handleMapFullyLoaded.bind(this)}
+          onBoundsChanged={this.handleBoundsChanged}
+          onSearchBoxMounted={this.handleSearchBoxMounted.bind(this)}
+          onPlacesChanged={this.handlePlacesChanged.bind(this)}
           center={{
             lat: lat,
             lng: lng
