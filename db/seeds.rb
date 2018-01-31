@@ -13,32 +13,17 @@ Posting.destroy_all
   })
 end
 
-coords_arr = [[37.774929, -122.419416],
-              [37.496341, -122.075454],
-              [37.504487, -122.070862],
-              [37.496303, -122.088672],
-              [37.509616, -122.087942],
-              [37.514782, -122.07408],
-              [37.502979, -122.100731],
-              [37.623895, -122.212654],
-              [37.626607, -122.206689],
-              [37.621107, -122.20244],
-              [37.637189, -122.212783],
-              [37.637643, -122.20626],
-              [37.651503, -122.197205],
-              [37.647375, -122.192741],
-              [37.655194, -122.184587],
-              [37.651127, -122.192398],
-              [37.675537, -122.299515]]
+center_point = { lat: 37.76174409364952, lng: -122.40686460327152 }
 
-
-coords_arr.each do |coord|
+100.times do 
   Posting.create({ 
-                user_id: rand(15),
-                latitude: coord[0],
-                longitude:coord[1],
-                likes: rand(20)
-                })
+    user_id: rand(15),
+    latitude: center_point[:lat] + rand(-0.05..0.05),
+    longitude: center_point[:lng] + rand(-0.05..0.05),
+    description: Faker::Lorem.paragraph(2),
+    name: Faker::Address.street_name,
+    likes: rand(20)
+    })
 end
 
 
