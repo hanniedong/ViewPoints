@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Map from './Map';
 import 'bootstrap';
+import PostingForm from './PostingForm'
 
 class HomePage extends Component {
   render() {
     return (
       <div className = 'container'>
         <Header />
-        <Map />
+        <div className = 'row'>
+          <div className = 'col-sm-6'>
+            <PostingForm />
+          </div>
+          <div className = 'col-sm-6'>
+            <Map />
+          </div>
+        </div>
       </div>
     );
   }
