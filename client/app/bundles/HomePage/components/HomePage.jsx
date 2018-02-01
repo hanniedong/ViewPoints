@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Map from './Map';
 import 'bootstrap';
-import PostingForm from './PostingForm'
+import axios from 'axios';
+import PostingForm from './PostingForm';
+import LoginButton from './LoginButton';
 
 class HomePage extends Component {
 
@@ -41,6 +43,10 @@ updateCurrentUser(email) {
   }
 
   render() {
+    const { currentUser } = this.props;
+
+    if(currentUser)
+
     return (
     <div className = 'webpage-container'>
       <div className = 'container'>
@@ -55,7 +61,25 @@ updateCurrentUser(email) {
         </div>
       </div>
     </div>
-    );
+    )
+  else
+    return(
+    <div className = 'webpage-container'>
+      <div className = 'container'>
+        <Header />
+        <div className = 'row'>
+          <div className = 'col-md-8'>
+            <Map />
+          </div>
+          <div className = 'col-md-4'>
+            <LoginButton />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      )
   }
 }
  
