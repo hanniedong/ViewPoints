@@ -12,7 +12,7 @@ export class ViewInfoWindow extends Component {
           <p>{description}</p>
           <p>{likes} likes </p>
           <img
-              width={150}
+              width={250}
               src={photo}
               style={{ alignSelf: 'center' }}
             />

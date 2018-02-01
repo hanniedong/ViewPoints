@@ -1,11 +1,14 @@
 class Posting < ApplicationRecord
   # belongs_to :poster, class_name: :User, foreign_key: :user_id
   has_many :favorites
-  has_attached_file :photo, styles: {
+  has_attached_file :photo,
+    styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
-  }
+  },
+  url:':s3_domain_url',
+  :path => '/:class/:attachment/:id_partition/:style/:filename'
 
   validates_attachment_file_name :photo, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/]
   scope :by_longitude, -> (min, max) { min && max ? where('longitude >= :min AND longitude <= :max', min: min, max: max) : all }
