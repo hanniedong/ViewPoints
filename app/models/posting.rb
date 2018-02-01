@@ -5,7 +5,8 @@ class Posting < ApplicationRecord
     styles: {
     thumb: '100x100>',
     square: '200x200#',
-    medium: '300x300>'
+    medium: '300x300>',
+    large: '700x700>'
   },
   url:':s3_domain_url',
   :path => '/:class/:attachment/:id_partition/:style/:filename'
