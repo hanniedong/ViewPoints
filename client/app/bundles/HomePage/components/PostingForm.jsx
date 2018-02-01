@@ -1,24 +1,50 @@
 import React from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
-
+import axios from 'axios';
 class PostingForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
-      address: 'San Francisco, CA',
+      address: '',
       name: '',
-      description: ''
+      description: '',
+      latitude:'',
+      longitude: '',
+      photo: ''
     }
-    this.onChange = (address) => this.setState({ address })
   }
 
-  handleFormSubmit = (event) => {
-    event.preventDefault()
+  buildFormData(){
+    let name = this.state.name;
+    let description = this.state.description;
+    let latitude = this.state.latitude;
+    let longitude = this.state.longitude;
+    let photo = this.state.photo;
+    let formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("longitude", longitude);
+    formData.append("latitude", latitude);
+    formData.append("photo", photo);
 
-    geocodeByAddress(this.state.address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
-      .catch(error => console.error('Error', error))
+    return formData
+  }
+
+  handleFormSubmit = (e) => {
+    e.preventDefault()
+    this.createPosting()
+  }
+
+  createPosting(){
+    var self = this;
+    var url = 'http://localhost:3000/api/postings'
+    axios.post(url, this.buildFormData())
+    .then(function(response) {
+      window.location="/hello_world";
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
   }
 
   handleInputChange = (e) => {
@@ -30,14 +56,33 @@ class PostingForm extends React.Component {
     });
   }
 
+  locationOnChange = (address) => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => this.setState({ latitude: latLng.lat, longitude: latLng.lng}))
+      .catch(error => console.error('Error', error))
+    this.setState({ address });
+  };
+
+  handleImageChange(e) {
+    var file = e.currentTarget.files[0];
+    this.setState({photo: file})
+  }
+
+
   render() {
     const inputProps = {
       value: this.state.address,
-      onChange: this.onChange,
+      onChange: this.locationOnChange,
+      placeholder: 'View Location',
     }
 
   return (
-    <form onSubmit={this.handleFormSubmit}>
+
+    <div >
+    <h3> Add a View </h3>
+      <form onSubmit={this.handleFormSubmit}>
+      
       <div className="form-group">
         <input
             className = 'form-control'
@@ -59,8 +104,19 @@ class PostingForm extends React.Component {
       <div className="form-group">
         <PlacesAutocomplete className = 'form-control' inputProps={inputProps} />
       </div>
+      <div className = "form-group">
+        <input
+          className= "form-group"
+          name= "photo"
+          type= "file"
+          multiple={true}
+          accept="image/*"
+          onChange={this.handleImageChange.bind(this)}
+        />
+      </div>
         <button className="btn btn-default" type="submit">Submit</button>
       </form>
+    </div>
     )
   }
 }

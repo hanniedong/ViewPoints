@@ -35,7 +35,8 @@ const ViewMap = withGoogleMap(props => (
                  lng={place.longitude}
                  description={place.description}
                  name={place.name}
-                 likes = {place.likes} />
+                 likes = {place.likes}
+                 photo= {place.photo} />
     ))}
     <SearchBox
       ref={props.onSearchBoxMounted}
@@ -76,7 +77,6 @@ export default class Map extends Component {
 
   handleSearchBoxMounted(searchbox){
     this.searchbox = searchbox
-    console.log(searchbox)
   }
 
   handleMapFullyLoaded() {
@@ -138,7 +138,7 @@ export default class Map extends Component {
   render() {
     const {lat, lng, places} = this.state;
     return(
-      <div style={{width: `600px`, height: `500px`}}>
+      <div className = 'map'>
         <ViewMap
           onMapMounted={this.handleMapMounted.bind(this)}
           handleMapChanged={this.handleMapChanged.bind(this)}
