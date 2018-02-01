@@ -34,10 +34,12 @@ export class PlaceMarker extends Component {
         key ={`marker${id}`}
         onClick={this.clickTooltip.bind(this)}>
         {showTooltip && (
-          <ViewInfoWindow description={description}
-                          key={`info${id}`}
-                           name={name}
-                           closeWindow={this.closeWindow.bind(this)}/>
+          <ViewInfoWindow 
+            description={description}
+            key={`info${id}`}
+            name={name}
+            likes = {likes}
+            closeWindow={this.closeWindow.bind(this)}/>
         )}
         </Marker>
     );

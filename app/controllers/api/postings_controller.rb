@@ -5,9 +5,22 @@ class Api::PostingsController < ApplicationController
     render json: postings
   end
  
+  def create
+    p "**********" 
+    p posting_params
+    p posting_params[:photo]
+    @posting = Posting.create!(posting_params)
+    render json: @posting
+  end
+
   private
  
   def search_params
     params.permit(:min_lng, :max_lng, :min_lat, :max_lat)
   end
+
+  def posting_params
+    params.permit(:name, :description, :latitude, :longitude, :user_id, :photo_content_type, :photo_file_name, :photo_file_size, :photo_updated_at,)
+  end 
+  
 end
