@@ -14,27 +14,33 @@ class PostingForm extends React.Component {
     }
   }
 
-  handleFormSubmit = (e) => {
-    e.preventDefault()
-    this.createPosting(this.state.name, this.state.description,this.state.latitude,this.state.longitude, this.state.photo)
+  buildFormData(){
+    let name = this.state.name;
+    let description = this.state.description;
+    let latitude = this.state.latitude;
+    let longitude = this.state.longitude;
+    let photo = this.state.photo;
+    let formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("longitude", longitude);
+    formData.append("latitude", latitude);
+    formData.append("photo", photo);
+
+    return formData
   }
 
-  createPosting(name, description, latitude, longitude, photo){
+  handleFormSubmit = (e) => {
+    e.preventDefault()
+    this.createPosting()
+  }
+
+  createPosting(){
     var self = this;
     var url = 'http://localhost:3000/api/postings'
-    axios.post(url, {
-        name: name,
-        description: description,
-        latitude: latitude,
-        longitude: longitude,
-        user_id: 1,
-        photo_content_type: photo.type,
-        photo_file_name: photo.name,
-        photo_file_size: photo.size,
-        photo_updated_at: photo.lastModifiedDate
-      })
+    axios.post(url, this.buildFormData())
     .then(function(response) {
-      console.log(response)
+      // window.location="/hello_world";
     })
     .catch(function(error) {
       console.log(error);
@@ -59,8 +65,8 @@ class PostingForm extends React.Component {
   };
 
   handleImageChange(e) {
-    let file = e.target.files[0];
-    this.setState({ photo: file});
+    var file = e.currentTarget.files[0];
+    this.setState({photo: file})
   }
 
 

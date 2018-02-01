@@ -1,14 +1,13 @@
 class Posting < ApplicationRecord
   # belongs_to :poster, class_name: :User, foreign_key: :user_id
   has_many :favorites
-  has_attached_file \
-    :photo,
-    styles: { medium: '300x300>' },
-    convert_options: {
-      all: '-interlace Plane'
-    },
-    default_url: '/images/default_:style_photo.png'
+  has_attached_file :photo, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
 
+  validates_attachment_file_name :photo, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/]
   scope :by_longitude, -> (min, max) { min && max ? where('longitude >= :min AND longitude <= :max', min: min, max: max) : all }
   scope :by_latitude, -> (min, max) { min && max ? where('latitude >= :min AND latitude <= :max', min: min, max: max) : all }
  
@@ -21,4 +20,15 @@ class Posting < ApplicationRecord
   end
 
 
+  def as_json(_opts = {})
+    {
+      id: id,
+      name: name,
+      description: description,
+      latitude: latitude,
+      longitude: longitude,
+      photo: photo.url,
+      likes: likes
+    }
+  end
 end

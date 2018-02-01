@@ -35,7 +35,8 @@ const ViewMap = withGoogleMap(props => (
                  lng={place.longitude}
                  description={place.description}
                  name={place.name}
-                 likes = {place.likes} />
+                 likes = {place.likes}
+                 photo= {place.photo} />
     ))}
     <SearchBox
       ref={props.onSearchBoxMounted}

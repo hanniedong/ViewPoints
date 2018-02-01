@@ -5,6 +5,7 @@ import { ViewInfoWindow } from './ViewInfoWindow'
 export class PlaceMarker extends Component {
   constructor(props){
     super(props)
+    console.log(this.props)
     this.state= {
       showTooltip: false
     }
@@ -20,7 +21,7 @@ export class PlaceMarker extends Component {
 
   render() {
     const {showTooltip} = this.state
-    const {lat, lng, name, description, id, likes} = this.props
+    const {lat, lng, name, description, id, likes, photo} = this.props
     return(
       <Marker
         position={{
@@ -39,6 +40,7 @@ export class PlaceMarker extends Component {
             key={`info${id}`}
             name={name}
             likes = {likes}
+            photo = {photo}
             closeWindow={this.closeWindow.bind(this)}/>
         )}
         </Marker>

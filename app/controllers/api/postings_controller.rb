@@ -10,6 +10,7 @@ class Api::PostingsController < ApplicationController
     p posting_params
     p posting_params[:photo]
     @posting = Posting.create!(posting_params)
+    puts "posting.photo =" + @posting.photo.inspect
     render json: @posting
   end
 
@@ -20,7 +21,7 @@ class Api::PostingsController < ApplicationController
   end
 
   def posting_params
-    params.permit(:name, :description, :latitude, :longitude, :user_id, :photo_content_type, :photo_file_name, :photo_file_size, :photo_updated_at,)
+    params.permit(:name, :description, :latitude, :longitude, :user_id, :photo)
   end 
   
 end
