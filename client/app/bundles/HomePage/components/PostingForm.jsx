@@ -112,7 +112,7 @@ class PostingForm extends React.Component {
       </div>
       <div className = "form-group">
         <input
-          className= "form-group"
+          className= "form-input-img"
           name= "photo"
           type= "file"
           multiple={true}
