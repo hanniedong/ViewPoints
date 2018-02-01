@@ -7,6 +7,7 @@ import PostingForm from './PostingForm'
 class HomePage extends Component {
   render() {
     return (
+    <div className = 'webpage-container'>
       <div className = 'container'>
         <Header />
         <div className = 'row'>
@@ -16,9 +17,9 @@ class HomePage extends Component {
           <div className = 'col-md-4'>
             <PostingForm />
           </div>
-
         </div>
       </div>
+    </div>
     );
   }
 }
