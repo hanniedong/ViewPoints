@@ -6,11 +6,7 @@ class Api::PostingsController < ApplicationController
   end
  
   def create
-    p "**********" 
-    p posting_params
-    p posting_params[:photo]
     @posting = Posting.create!(posting_params)
-    puts "posting.photo =" + @posting.photo.inspect
     render json: @posting
   end
 
