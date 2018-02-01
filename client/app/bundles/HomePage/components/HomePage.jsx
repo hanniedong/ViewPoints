@@ -5,6 +5,41 @@ import 'bootstrap';
 import PostingForm from './PostingForm'
 
 class HomePage extends Component {
+
+constructor(){
+    super();
+    this.state = {
+      currentUser: null
+    }
+    this.updateCurrentUser = this.updateCurrentUser.bind(this);
+  }
+
+componentDidMount(){
+  let that = this
+  axios.get('http://localhost:3000/api/postings',{
+  })
+  .then(function(response){
+    if(response.data.email){
+      that.setState({
+        currentUser: response.data.email
+      })
+    } else {
+      that.setState({
+        currentUser: null
+      })
+    }
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+}
+
+updateCurrentUser(email) {
+    this.setState({
+      currentUser: email
+    })
+  }
+
   render() {
     return (
     <div className = 'webpage-container'>
