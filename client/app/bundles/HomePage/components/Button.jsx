@@ -10,7 +10,7 @@ export default class Button extends Component {
   render() {
     return (
       <div className = 'btn-homepage'>
-        <button className="btn-lg btn-style btn-warning" type="submit">{this.props.name}</button>
+        <button className="btn-lg btn-style" type="submit">{this.props.name}</button>
       </div>
     );
   }
