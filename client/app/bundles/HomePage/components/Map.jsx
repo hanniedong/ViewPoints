@@ -36,7 +36,7 @@ const ViewMap = withGoogleMap(props => (
                  lng={place.longitude}
                  description={place.description}
                  name={place.name}
-                 likes = {place.likes}
+                 likes = {place.likes.length}
                  photo= {place.photo} 
                  poster = {place.poster}/>
     ))}

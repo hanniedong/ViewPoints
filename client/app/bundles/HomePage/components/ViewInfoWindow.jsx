@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { InfoWindow } from 'react-google-maps'
- 
+import axios from 'axios'
+
 export class ViewInfoWindow extends Component {
+
+  likePhoto(){
+
+  }
   render() {
     const {description, poster, name, likes, photo} = this.props
  
@@ -17,6 +22,9 @@ export class ViewInfoWindow extends Component {
               src={photo}
               style={{ alignSelf: 'center' }}
             />
+          <button onclick= {this.likePhoto().bind(this)}>
+            Like Photo
+          </button>
         </div>
       </InfoWindow>
     );
