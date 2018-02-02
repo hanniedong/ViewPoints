@@ -24,7 +24,7 @@ class RegisterPage extends Component {
   }
 
   createUser(firstName, lastName, email, password){
-    axios.post("/users", {
+    axios.post("/api/users", {
         first_name: firstName,
         last_name: lastName,
         email: email,

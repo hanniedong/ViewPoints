@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   resources :likes
   
   get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
 
   namespace :api, defaults: { format: 'json' } do
     resources :sessions
     resources :postings
     resources :likes
-    resources :users, only: [:index, :show]
+    resources :users
   end
 
   root to: 'postings#index'
