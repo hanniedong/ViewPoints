@@ -5,19 +5,19 @@
 .map-likes-marker {
   position: absolute;
   font-family: 'Helvetica';
-  left: -37px;
-  top: -25px;
-  width: 70px;
-  height: 20px;
-  border-radius: 3px;
-  line-height: 22px;
-  background-color: white;
+  left: -30px;
+  top: -28px;
+  width: 60px;
+  height: 25px;
+  border-radius: 50px;
+  line-height: 23px;
+  background-color: #B77532;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.07);
   text-align: center;
-  color: black;
+  color: white;
   font-size: 12px;
-  font-weight: 700;
-  border: 1px solid gray;
+  font-weight: 400;
+  border: 1px solid white;
   z-index: 1;
 }
 .map-likes-marker:before,
@@ -28,17 +28,17 @@
 }
  
 .map-likes-marker:after {
-  left: 31px;
-  top: 19px;
+  left: 24px;
+  top: 24px;
   border-width: 5px;
   border-color: white transparent transparent;
 }
  
 .map-likes-marker:before {
-  left: 30px;
-  top: 20px;
+  left: 24px;
+  top: 24px;
   border-width: 6px;
-  border-color: gray transparent transparent;
+  border-color: #B77532 transparent transparent;
 }
  
 .map-likes-marker.visited:hover {

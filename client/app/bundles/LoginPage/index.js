@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import App from '../App'
-
+import axios from 'axios'
 class LoginPage extends Component {
   constructor(props) {
     super(props);
