@@ -4,6 +4,7 @@
   padding-right: 3%;
 }
 
+
 body::after {
   content: "";
   background-image: url("http://blog.hellobc.com/wp-content/uploads/2015/10/Cypress-Mountain.jpg");
@@ -80,8 +81,12 @@ body::after {
   text-align: center;
 }
 
-.align-center{
-  text-align: center;
+.wrapper{
+  margin: 0 auto;
+}
+
+.align-right{
+  align-content: right;
 }
 .link-style{
   background-color: transparent;

@@ -28,7 +28,8 @@ class PostingForm extends React.Component {
     formData.append("longitude", longitude);
     formData.append("latitude", latitude);
     formData.append("photo", photo);
-    formData.append("user_id", user.id)
+    formData.append("user_id", user.id);
+    formData.append("address", address);
 
     return formData
   }

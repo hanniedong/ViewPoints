@@ -27,7 +27,7 @@ constructor(props){
     });
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.getPosting()
   }
 
@@ -35,19 +35,37 @@ constructor(props){
     var self = this;
     axios.get('/api' + window.location.pathname)
     .then(function(response){
-      console.log(response)
-      // self.setState({ post: response.data})
+      self.setState({ post: response.data})
     }) 
   }
 
   render() {
     const { currentUser } = this.props
- 
+    const { post } = this.state 
+    console.log(post)
+
+  if (this.state.post != ''){
     return(
-        <div>
-          <h1>hi</h1>
+      <div className = 'container'>
+      <div className = 'row'>
+        <div className = 'col-md-4'>
+          <h1 className='font-color'>{post.name}</h1>
+          <h4 className = 'font-color'> Posted by: {post.poster.first_name}</h4>
+          <p className='font-color'>Description: {post.description}</p>
         </div>
+        <div className = 'col-md-8'>
+          <img
+              className = "img-fluid img-thumbnail float-right"
+              src={post.photo}
+              style={{ alignSelf: 'center' }}
+            />
+        </div>
+      </div>
+      </div>
     );
+    }
+  else
+    return null
   }
 }
  
