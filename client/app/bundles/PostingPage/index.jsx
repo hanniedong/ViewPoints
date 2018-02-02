@@ -18,7 +18,7 @@ constructor(props){
   likePhoto(user_id, posting_id){
     console.log(user_id)
     var self = this;
-    var url = 'http://localhost:3000/likes'
+    var url = 'http://localhost:3000/api/likes'
     axios.post(url, { 
       user_id: user_id,
       posting_id: posting_id}
