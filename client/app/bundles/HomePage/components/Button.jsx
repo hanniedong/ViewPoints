@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router'
 
 export default class Button extends Component {
   constructor(props) {
@@ -10,7 +11,11 @@ export default class Button extends Component {
   render() {
     return (
       <div className = 'btn-homepage'>
-        <button className="btn-lg btn-style" type="submit">{this.props.name}</button>
+        <a 
+          className="btn-lg link-style" 
+          href= '/login' >
+          {this.props.name}
+        </a>
       </div>
     );
   }

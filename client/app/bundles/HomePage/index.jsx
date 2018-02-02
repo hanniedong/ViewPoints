@@ -36,7 +36,7 @@ class HomePage extends Component {
             <Map />
           </div>
           <div className = 'col-md-4'>
-            <Button name = "Login" href="/login" />
+            <Button name = "Login" />
             <Button name = "Register" />
           </div>
 
