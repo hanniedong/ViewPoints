@@ -27,7 +27,7 @@ class Api::PostingsController < ApplicationController
   end 
 
   def posting_params
-    params.permit(:name, :description, :latitude, :user_id, :longitude, :photo)
+    params.permit(:name, :address, :description, :latitude, :user_id, :longitude, :photo)
   end 
   
 end

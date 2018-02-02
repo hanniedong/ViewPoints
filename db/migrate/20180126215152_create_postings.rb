@@ -6,6 +6,7 @@ class CreatePostings < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :description
       t.integer :user_id
+      t.string :address
       t.timestamps
     end
   end

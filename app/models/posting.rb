@@ -34,7 +34,8 @@ class Posting < ApplicationRecord
       longitude: longitude,
       photo: photo.url,
       likes: likes,
-      poster: poster
+      poster: poster,
+      address: address
     }
   end
 end

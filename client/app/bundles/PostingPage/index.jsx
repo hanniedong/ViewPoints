@@ -60,6 +60,8 @@ constructor(props){
         <div className = 'col-md-4'>
           <h1 className='font-color'>{post.name}</h1>
           <h4 className = 'font-color'> Posted by: {post.poster.first_name}</h4>
+          <p className='font-color'>Address: {post.address}</p>
+          
           <p className='font-color'>Description: {post.description}</p>
           <p className='font-color'>Likes: {post.likes.length}</p>
           <button 

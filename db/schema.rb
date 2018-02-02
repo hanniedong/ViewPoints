@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180131024955) do
     t.string "name"
     t.text "description"
     t.integer "user_id"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo_file_name"

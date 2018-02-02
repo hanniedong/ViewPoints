@@ -64,15 +64,13 @@ body::after {
 }
 
 .form-input-img {
-  width: 90%;
-  padding: 10px;
   color: #FFFFFF;
   font-family: 'Ubuntu', sans-serif;
   border: none;
   font-size: 1em;
 }
 
-.blue-btn{
+.orange-btn{
   font-family: 'Ubuntu', sans-serif;
   background-color: #B77532;
 }
