@@ -85,9 +85,11 @@ body::after {
   margin: 0 auto;
 }
 
-.align-right{
-  align-content: right;
+.btn-wrapper{
+  display: block;
+  margin: 100px;
 }
+
 .link-style{
   background-color: transparent;
   border: 2px solid white;

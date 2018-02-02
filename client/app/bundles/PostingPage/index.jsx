@@ -67,7 +67,13 @@ constructor(props){
             className= 'btn-lg btn-warning'>
             Like photo
           </button>
-
+          <div className = 'btn-wrapper' >
+          <a
+            href = '/'
+            className= 'btn-lg btn-style'>
+            Back
+          </a>
+          </div>
         </div>
         <div className = 'col-md-8'>
           <img
