@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  get 'hello_world', to: 'hello_world#index'
 
-  get 'test', to: 'test#index'
+  resources :users, only: [:index, :new, :create, :show, :update]
+  resources :auth, only: [:index, :show]
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   namespace :api, defaults: { format: 'json' } do
-    resources :postings, only: [:index, :create]
+    resources :auth, only: [:index, :show]
+    resources :postings, 
+    resources :users, only: [:index, :show]
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'postings#index'
 end
