@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  resources :postings, only: [:index, :show]
   resources :users, only: [:index, :new, :create, :show, :update]
   resources :auth, only: [:index, :show]
 
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     resources :auth, only: [:index, :show]
     resources :postings
+    resources :likes
     resources :users, only: [:index, :show]
   end
 

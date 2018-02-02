@@ -4,11 +4,12 @@ import axios from 'axios'
 
 export class ViewInfoWindow extends Component {
 
-  likePhoto(){
+constructor(props){
+  super(props)
+}
 
-  }
   render() {
-    const {description, poster, name, likes, photo} = this.props
+    const {user, id, description, poster, name, likes, photo} = this.props
  
     return(
       <InfoWindow onCloseClick={this.props.closeWindow}>
@@ -22,9 +23,12 @@ export class ViewInfoWindow extends Component {
               src={photo}
               style={{ alignSelf: 'center' }}
             />
-          <button onclick= {this.likePhoto().bind(this)}>
-            Like Photo
-          </button>
+          <br></br>
+          <div>
+            <a href = {`/postings/${id}`}>
+              View Details
+            </a>
+          </div>
         </div>
       </InfoWindow>
     );

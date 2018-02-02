@@ -2,16 +2,19 @@ class Api::LikesController < ApplicationController
   include SessionsHelper
 
   def create
-    @likes = Like.create!(likes_params)
+    p "**********"
+    p current_user.id
+    p "**********"
     p likes_params
-    render json: @posting
+    @like = Like.create!(current_user.id, likes_params[:photo_id])
+    render json: @like
   end
 
   private
  
 
   def likes_params
-    params.permit(:user_id, :photo_id)
+    params.permit(:photo_id)
   end 
   
 end

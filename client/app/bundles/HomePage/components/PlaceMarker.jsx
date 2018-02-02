@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Marker } from 'react-google-maps'
 import { ViewInfoWindow } from './ViewInfoWindow'
- 
+import axios from 'axios'
+
 export class PlaceMarker extends Component {
   constructor(props){
     super(props)
@@ -21,7 +22,7 @@ export class PlaceMarker extends Component {
 
   render() {
     const {showTooltip} = this.state
-    const {lat, lng, name, description, id, likes, photo, poster} = this.props
+    const {currentUser, lat, lng, name, description, id, likes, photo, poster} = this.props
 
     return(
       <Marker
@@ -37,6 +38,7 @@ export class PlaceMarker extends Component {
         onClick={this.clickTooltip.bind(this)}>
         {showTooltip && (
           <ViewInfoWindow 
+            id={id}
             description={description}
             key={`info${id}`}
             name={name}
