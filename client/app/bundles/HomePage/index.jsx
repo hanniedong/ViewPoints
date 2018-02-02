@@ -25,7 +25,7 @@ class HomePage extends Component {
               <div className = 'align-center'>
                 <a 
                   className="btn-lg link-style align-center" 
-                  href= '/users/new' >
+                  href= '/logout' >
                   Logout
                 </a>
               </div>
