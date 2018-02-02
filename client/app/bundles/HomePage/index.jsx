@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
 import App from '../App'
-import Button from './components/Button';
 import 'bootstrap';
 import PostingForm from './components/PostingForm'
 
@@ -36,12 +35,24 @@ class HomePage extends Component {
             <Map />
           </div>
           <div className = 'col-md-4'>
-            <Button name = "Login" />
-            <Button name = "Register" />
+            <div className = 'align-center'>
+            <a 
+              className="btn-lg link-style" 
+              href= '/login'>
+              Login
+            </a>
+          </div> 
+          <div className = 'align-center'>
+            <a 
+              className="btn-lg link-style align-center" 
+              href= '/register' >
+              Register
+            </a>
           </div>
 
         </div>
       </div>
+    </div>
     )
   }
 }

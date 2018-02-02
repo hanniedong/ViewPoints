@@ -9,11 +9,13 @@ export default class Button extends Component {
   }
 
   render() {
+    const { name } = this.props
+    const url = `/${name}`
     return (
       <div className = 'btn-homepage'>
         <a 
           className="btn-lg link-style" 
-          href= '/login' >
+          href= {url} >
           {this.props.name}
         </a>
       </div>
