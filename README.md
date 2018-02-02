@@ -37,7 +37,7 @@ The urge to wander and explore is in all of us. Did you see a friend take an ama
 
 -----------------------------------------------
 
-![Schema Design](/SchemaDesign.png "Schema Design")
+![Schema Design](/schema.png "Schema Design")
 
 <a name="techstack" />
 
