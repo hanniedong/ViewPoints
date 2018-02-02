@@ -45,7 +45,7 @@ class HomePage extends Component {
           <div className = 'align-center'>
             <a 
               className="btn-lg link-style align-center" 
-              href= '/register' >
+              href= '/users/new' >
               Register
             </a>
           </div>
