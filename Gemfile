@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'aws-sdk', '~> 2'
 gem 'faker'
