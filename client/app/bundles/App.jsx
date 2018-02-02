@@ -12,7 +12,7 @@ export default class App extends Component {
 constructor(){
     super();
     this.state = {
-      currentUser: null
+      currentUser: null,
     }
     this.updateCurrentUser = this.updateCurrentUser.bind(this);
   }
@@ -24,7 +24,7 @@ componentDidMount(){
   .then(function(response){
     if(response.data.email){
       that.setState({
-        currentUser: response.data.email
+        currentUser: response.data
       })
     } else {
       that.setState({

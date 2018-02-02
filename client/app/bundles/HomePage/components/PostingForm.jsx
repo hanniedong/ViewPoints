@@ -20,12 +20,15 @@ class PostingForm extends React.Component {
     let latitude = this.state.latitude;
     let longitude = this.state.longitude;
     let photo = this.state.photo;
+    let user = this.props.user;
+
     let formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
     formData.append("longitude", longitude);
     formData.append("latitude", latitude);
     formData.append("photo", photo);
+    formData.append("user_id", user.id)
 
     return formData
   }
@@ -40,7 +43,7 @@ class PostingForm extends React.Component {
     var url = 'http://localhost:3000/api/postings'
     axios.post(url, this.buildFormData())
     .then(function(response) {
-      window.location="/hello_world";
+      window.location="/";
     })
     .catch(function(error) {
       console.log(error);

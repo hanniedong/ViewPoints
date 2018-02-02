@@ -18,10 +18,17 @@ class HomePage extends Component {
         <div className = 'container'>
           <div className = 'row'>
             <div className = 'col-md-8'>
-              <Map />
+              <Map user = {currentUser} />
             </div>
             <div className = 'col-md-4'>
-              <PostingForm />
+              <PostingForm user = {currentUser} />
+              <div className = 'align-center'>
+                <a 
+                  className="btn-lg link-style align-center" 
+                  href= '/users/new' >
+                  Logout
+                </a>
+              </div>
             </div>
 
           </div>
