@@ -15,16 +15,24 @@ constructor(props){
   this.likePhoto = this.likePhoto.bind(this)
 }
 
-  likePhoto(user, photo_id){
+  likePhoto(user_id, posting_id){
+    console.log(user_id)
     var self = this;
-    var url = 'http://localhost:3000/api/likes'
-    axios.post(url,{ photo_id: photo_id})
+    var url = 'http://localhost:3000/likes'
+    axios.post(url, { 
+      user_id: user_id,
+      posting_id: posting_id}
+    )
     .then(function(response) {
-      window.location="/";
+      window.location.reload()
     })
     .catch(function(error) {
       console.log(error);
     });
+  }
+
+  handleClick(){
+    this.likePhoto(this.props.currentUser.id, this.state.post.id)
   }
 
   componentWillMount(){
@@ -42,9 +50,10 @@ constructor(props){
   render() {
     const { currentUser } = this.props
     const { post } = this.state 
+    console.log(currentUser)
     console.log(post)
 
-  if (this.state.post != ''){
+  if (this.state.post != '' && currentUser != null){
     return(
       <div className = 'container'>
       <div className = 'row'>
@@ -52,6 +61,13 @@ constructor(props){
           <h1 className='font-color'>{post.name}</h1>
           <h4 className = 'font-color'> Posted by: {post.poster.first_name}</h4>
           <p className='font-color'>Description: {post.description}</p>
+          <p className='font-color'>Likes: {post.likes.length}</p>
+          <button 
+            onClick = {this.handleClick.bind(this)} 
+            className= 'btn-lg btn-warning'>
+            Like photo
+          </button>
+
         </div>
         <div className = 'col-md-8'>
           <img

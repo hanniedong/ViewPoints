@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :postings, only: [:index, :show]
   resources :users, only: [:index, :new, :create, :show, :update]
   resources :auth, only: [:index, :show]
-
+  resources :likes
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
