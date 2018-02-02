@@ -2,9 +2,76 @@ import React, { Component } from 'react';
 import App from '../App'
 
 class LoginPage extends Component {
+  constructor(props) {
+    super(props);
 
-  render(){
-    return(<h1> hi </h1>)
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
+
+  handleInputChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  loginUser = (email, password) => {
+    axios.post("/login", {
+      email: email,
+      password: password
+    })
+    .then(function(response) {
+      window.location = "/";
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.loginUser(this.state.email, this.state.password);
+  };
+
+  render() {
+    return (
+      <div className = 'form-container'>
+        <h1 className = 'font-color'> Login </h1>
+        <form onSubmit={this.handleSubmit}>
+        <div className = 'form-group'>
+            <input
+              className = 'form-control input-lg'
+              placeholder="email"
+              name="email"
+              type="string"
+              onChange={this.handleInputChange}
+            />
+
+        </div>
+        <div className = 'form-group'>
+          <input
+            className = 'form-control input-lg'
+            placeholder="password"
+            name="password"
+            type="password"
+            onChange={this.handleInputChange}
+          />
+
+        </div>
+        <div className = 'form-group'>
+          <button 
+            className = 'btn-lg btn-style' 
+            type="submit"> Login 
+          </button>
+        </div>
+        </form>
+      </div>
+    );
   }
 }
  
