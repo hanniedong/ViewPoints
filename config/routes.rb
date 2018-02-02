@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     resources :auth, only: [:index, :show]
-    resources :postings, 
+    resources :postings
     resources :users, only: [:index, :show]
   end
 
