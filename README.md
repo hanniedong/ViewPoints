@@ -37,7 +37,7 @@ The urge to wander and explore is in all of us. Did you see a friend take an ama
 
 -----------------------------------------------
 
-![Schema Design](/schema.png "Schema Design")
+![Schema Design](https://github.com/hanniedong/viewpoints/blob/development/app/assets/images/schema.png "Schema Design")
 
 <a name="techstack" />
 
@@ -56,17 +56,11 @@ The urge to wander and explore is in all of us. Did you see a friend take an ama
 
 ### SCREENSHOTS: 
 -----------------------------------------------
-![homepage](/tripnout1.png "homepage")
-![trip page](/tripnout2.png "trip page")
-![trip form](/tripnout3.png "trip form")
-![trip details](/tripnout4.png "trip details")
-![itinerary](/tripnout5.png "itinerary")
-![event form](/tripnout6.png "itinerary")
-![expense page](/tripnout7.png "expense page")
-![expense form](/tripnout8.png "expense form")
+![login](https://github.com/hanniedong/viewpoints/blob/development/app/assets/images/login.png "login")
+![add view](https://github.com/hanniedong/viewpoints/blob/development/app/assets/images/Screen%20Shot%202018-02-02%20at%204.01.12%20AM.png "add view")
+![view details](https://github.com/hanniedong/viewpoints/blob/development/app/assets/images/info-window.png "view-details")
 
 #### Resources:
 
-* [React Native Styling](https://medium.com/the-react-native-log/tips-for-styling-your-react-native-apps-3f61608655eb)
-* [React Native Tutorial](https://facebook.github.io/react-native/docs/tutorial.html)
-* [Date time picker for iOS](https://facebook.github.io/react-native/docs/datepickerios.html)
+* [Paperclip with Amazon S3](https://github.com/thoughtbot/paperclip/wiki/Paperclip-with-Amazon-S3)
+* [React-Google-Maps](https://github.com/tomchentw/react-google-maps)
