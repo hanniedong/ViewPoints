@@ -36,9 +36,10 @@ const ViewMap = withGoogleMap(props => (
                  lng={place.longitude}
                  description={place.description}
                  name={place.name}
-                 likes = {place.likes}
+                 likes = {place.likes.length}
                  photo= {place.photo} 
-                 poster = {place.poster}/>
+                 poster = {place.poster}
+                 user = {props.currentUser}/>
     ))}
     <SearchBox
       ref={props.onSearchBoxMounted}
@@ -140,6 +141,7 @@ export default class Map extends Component {
 
   render() {
     const {lat, lng, places} = this.state;
+
     return(
       <div className = 'map'>
         <ViewMap

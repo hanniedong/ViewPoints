@@ -5,8 +5,8 @@ class CreatePostings < ActiveRecord::Migration[5.1]
       t.float :longitude, null: false
       t.string :name
       t.text :description
-      t.integer :likes, default: 0
       t.integer :user_id
+      t.string :address
       t.timestamps
     end
   end

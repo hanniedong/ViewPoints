@@ -21,7 +21,7 @@ class LoginPage extends Component {
   }
 
   loginUser = (email, password) => {
-    axios.post("/login", {
+    axios.post("/api/sessions", {
       email: email,
       password: password
     })

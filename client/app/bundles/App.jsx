@@ -19,7 +19,7 @@ constructor(){
 
 componentDidMount(){
   let that = this
-  axios.get('http://localhost:3000/api/auth',{
+  axios.get('http://localhost:3000/api/sessions',{
   })
   .then(function(response){
     if(response.data.email){

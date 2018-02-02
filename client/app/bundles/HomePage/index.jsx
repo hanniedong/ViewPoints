@@ -12,6 +12,7 @@ class HomePage extends Component {
 
   render() {
     const { currentUser } = this.props
+    console.log(currentUser)
 
     if (currentUser)
       return (

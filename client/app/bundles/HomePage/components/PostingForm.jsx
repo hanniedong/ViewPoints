@@ -21,6 +21,7 @@ class PostingForm extends React.Component {
     let longitude = this.state.longitude;
     let photo = this.state.photo;
     let user = this.props.user;
+    let address = this.state.address
 
     let formData = new FormData();
     formData.append("name", name);
@@ -28,7 +29,8 @@ class PostingForm extends React.Component {
     formData.append("longitude", longitude);
     formData.append("latitude", latitude);
     formData.append("photo", photo);
-    formData.append("user_id", user.id)
+    formData.append("user_id", user.id);
+    formData.append("address", address);
 
     return formData
   }
@@ -123,8 +125,10 @@ class PostingForm extends React.Component {
           onChange={this.handleImageChange.bind(this)}
         />
       </div>
-      <div className = 'btn-wrapper'>
-        <button className="btn blue-btn" type="submit">Submit</button>
+      <div className = "form-group">
+        <div className = 'btn-wrapper'>
+          <button className="btn orange-btn" type="submit">Submit</button>
+        </div>
       </div>
       </form>
     </div>
