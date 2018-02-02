@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import HomePage from './HomePage';
-import LoginPage from './LoginPage';
 import Header from './HomePage/components/Header';
 import 'bootstrap';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory  } from 'react-router-dom'
 
 export default class App extends Component {
 
@@ -44,21 +40,18 @@ updateCurrentUser(email) {
   }
 
   render() {
-    <Router>
-      <Route path="/hello_world" component={App} path="app" history={browserHistory}>
-        <Route path="/login" component={LoginPage}/>
-      </Route>
-    </Router>
 
-    const { currentUser } = this.props;
-
+    const { currentUser } = this.state;
+    const modifiedChild = React.cloneElement(this.props.children, {
+      currentUser
+    });
 
     return (
     <div className = 'webpage-container'>
       <Header />
-      <HomePage />
+      {modifiedChild}
     </div>
 
-      )
+    )
   }
 }

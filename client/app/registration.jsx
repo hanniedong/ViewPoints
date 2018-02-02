@@ -1,6 +1,8 @@
 import ReactOnRails from 'react-on-rails';
-import App from './bundles/App';
+import HomePage from './bundles/HomePage';
+import LoginPage from './bundles/LoginPage';
 // This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
-  App
+  HomePage,
+  LoginPage
 });

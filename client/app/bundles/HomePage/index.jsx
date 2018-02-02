@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Map from './components/Map';
+import App from '../App'
 import Button from './components/Button';
 import 'bootstrap';
 import PostingForm from './components/PostingForm'
@@ -46,4 +47,12 @@ class HomePage extends Component {
   }
 }
  
-export default HomePage
+export default class HomePageContainer extends Component {
+  render() {
+    return (
+      <App>
+        <HomePage />
+      </App>
+    );
+  }
+}
