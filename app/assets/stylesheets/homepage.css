@@ -70,6 +70,16 @@ body::after {
   text-align: center;
 }
 
+.btn-homepage{
+  text-align: center;
+  margin: 20px;
+}
+
+.btn-style{
+  width:200px;
+  height: 50px;
+}
+
 .my-autocomplete-container{
   width: 90%;
   padding: 10px;
