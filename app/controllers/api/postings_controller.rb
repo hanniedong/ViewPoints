@@ -1,4 +1,5 @@
 class Api::PostingsController < ApplicationController
+  include SessionsHelper
 
   def index
     postings = Posting.search(search_params.to_h.symbolize_keys)
@@ -17,7 +18,7 @@ class Api::PostingsController < ApplicationController
   end
 
   def posting_params
-    params.permit(:name, :description, :latitude, :longitude, :user_id, :photo)
+    params.permit(:name, :description, :latitude, :user_id, :longitude, :photo)
   end 
   
 end

@@ -20,12 +20,15 @@ class PostingForm extends React.Component {
     let latitude = this.state.latitude;
     let longitude = this.state.longitude;
     let photo = this.state.photo;
+    let user = this.props.user;
+
     let formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
     formData.append("longitude", longitude);
     formData.append("latitude", latitude);
     formData.append("photo", photo);
+    formData.append("user_id", user.id)
 
     return formData
   }
@@ -40,7 +43,7 @@ class PostingForm extends React.Component {
     var url = 'http://localhost:3000/api/postings'
     axios.post(url, this.buildFormData())
     .then(function(response) {
-      window.location="/hello_world";
+      window.location="/";
     })
     .catch(function(error) {
       console.log(error);
@@ -77,15 +80,21 @@ class PostingForm extends React.Component {
       placeholder: 'View Location',
     }
 
+  const cssClasses = {
+    root: 'form-group',
+    input: 'form-input',
+    autocompleteContainer: 'my-autocomplete-container'
+  }
+
   return (
 
-    <div >
-    <h3> Add a View </h3>
+    <div className = 'form' >
+    <h3 className = 'form-font'> Add a View </h3>
       <form onSubmit={this.handleFormSubmit}>
       
       <div className="form-group">
         <input
-            className = 'form-control'
+            className = 'form-input'
             placeholder="View Title"
             name="name"
             type="string"
@@ -94,7 +103,7 @@ class PostingForm extends React.Component {
       </div>
       <div className="form-group">
         <input
-          className = 'form-control'
+          className = 'form-input'
           placeholder="View Description"
           name="description"
           type="text"
@@ -102,11 +111,11 @@ class PostingForm extends React.Component {
         />
       </div>
       <div className="form-group">
-        <PlacesAutocomplete className = 'form-control' inputProps={inputProps} />
+        <PlacesAutocomplete classNames = {cssClasses} inputProps={inputProps} />
       </div>
       <div className = "form-group">
         <input
-          className= "form-group"
+          className= "form-input-img"
           name= "photo"
           type= "file"
           multiple={true}
@@ -114,7 +123,9 @@ class PostingForm extends React.Component {
           onChange={this.handleImageChange.bind(this)}
         />
       </div>
-        <button className="btn btn-default" type="submit">Submit</button>
+      <div className = 'btn-wrapper'>
+        <button className="btn blue-btn" type="submit">Submit</button>
+      </div>
       </form>
     </div>
     )

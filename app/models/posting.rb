@@ -1,5 +1,5 @@
 class Posting < ApplicationRecord
-  # belongs_to :poster, class_name: :User, foreign_key: :user_id
+  belongs_to :poster, class_name: :User, foreign_key: :user_id
   has_many :favorites
   has_attached_file :photo,
     styles: {
@@ -32,7 +32,8 @@ class Posting < ApplicationRecord
       latitude: latitude,
       longitude: longitude,
       photo: photo.url,
-      likes: likes
+      likes: likes,
+      poster: poster
     }
   end
 end

@@ -1,15 +1,135 @@
-.container {
-  width: 100%;
-  height:100%;
+.webpage-container {
+  height: 100%;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+body::after {
+  content: "";
+  background-image: url("http://blog.hellobc.com/wp-content/uploads/2015/10/Cypress-Mountain.jpg");
+  background-size: cover;
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.font-color{
+  color: #FFFFFF;
 }
 
 .map {
-  width: 700px;
-  height: 500px;
+  width: 52em;
+  height: 35em;
   position: relative;
 }
 
 .about{
-  padding: 50px;
-  margin-top: 50px;
+  padding: 4em;
+  margin-top: 4em;
 }
+
+.form {
+  padding: 20px;
+  padding-bottom: 30px;
+  border-radius: 3px
+}
+
+.form-font{
+  margin: 10px;
+  font-size: 2.5em;
+  font-family: 'Ubuntu', sans-serif;
+  color: #F4F4F4;
+  text-shadow: 0.5px 0.5px darkgrey;
+  opacity: 1;
+}
+
+.form-container{
+  width: 40%;
+  align-self: center;
+  text-align: center;
+  margin: auto;
+}
+
+.form-input {
+  width: 90%;
+  padding: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  font-size: 1em;
+}
+
+.form-input-img {
+  width: 90%;
+  padding: 10px;
+  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  font-size: 1em;
+}
+
+.blue-btn{
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #B77532;
+}
+
+.btn-wrapper{
+  text-align: center;
+}
+
+.align-center{
+  text-align: center;
+}
+.link-style{
+  background-color: transparent;
+  border: 2px solid white;
+  color: #FFFFFF;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.link-style:hover{
+  background-color: #FFFFFF;
+  color: #B77532;
+}
+
+.btn-style{
+  background-color: transparent;
+  border: 2px solid white;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.btn-style:hover{
+  background-color: #FFFFFF;
+  color: #B77532;
+}
+
+.my-autocomplete-container{
+  width: 90%;
+  padding: 10px;
+  font-family: 'Ubuntu', sans-serif;
+}
+.header{
+  margin: 40px;
+}
+
+.viewpoint{
+  margin: 0;
+  font-size: 4em;
+  font-family: 'Ubuntu', sans-serif;
+  color: #FFFFFF;
+  text-shadow: 0.5px 0.5px darkgrey;
+  text-align: center;
+}
+
+.header h1 {
+  border-bottom: 2px solid;
+  margin-right: auto;
+  margin-left: auto;
+}
+

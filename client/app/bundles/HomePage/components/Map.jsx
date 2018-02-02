@@ -8,9 +8,10 @@ const INPUT_STYLE = {
   boxSizing: `border-box`,
   MozBoxSizing: `border-box`,
   border: `1px solid transparent`,
-  width: `240px`,
-  height: `32px`,
+  width: `300px`,
+  height: `40px`,
   marginTop: `27px`,
+  marginRight: `27px`,
   padding: `0 12px`,
   borderRadius: `1px`,
   boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
@@ -36,14 +37,16 @@ const ViewMap = withGoogleMap(props => (
                  description={place.description}
                  name={place.name}
                  likes = {place.likes}
-                 photo= {place.photo} />
+                 photo= {place.photo} 
+                 poster = {place.poster}/>
     ))}
     <SearchBox
       ref={props.onSearchBoxMounted}
       bounds={props.bounds}
-      controlPosition={google.maps.ControlPosition.TOP_LEFT}
+      controlPosition={google.maps.ControlPosition.TOP_RIGHT}
       onPlacesChanged={props.onPlacesChanged}
       inputStyle={INPUT_STYLE}
+      inputPlaceholder = 'Enter your location'
     >
     </SearchBox>
   </GoogleMap>
