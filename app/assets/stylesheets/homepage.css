@@ -4,7 +4,10 @@
   padding-right: 3%;
 }
 
-
+p{
+  font-size: 1.2em;
+  font-weight: 300
+}
 body::after {
   content: "";
   background-image: url("http://blog.hellobc.com/wp-content/uploads/2015/10/Cypress-Mountain.jpg");
@@ -18,6 +21,9 @@ body::after {
   z-index: -1;
 }
 
+.card{
+  background-color: blue
+}
 .font-color{
   color: #FFFFFF;
 }

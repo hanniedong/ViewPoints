@@ -53,7 +53,7 @@ constructor(props){
     console.log(currentUser)
     console.log(post)
 
-  if (this.state.post != '' && currentUser != null){
+  if (this.state.post != ''){
     return(
       <div className = 'container'>
       <div className = 'row'>
