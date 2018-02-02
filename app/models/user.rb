@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :postings
-  has_many :favorites
+
+  has_many :likes
 
 end
