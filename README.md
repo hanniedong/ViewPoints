@@ -65,16 +65,6 @@ The urge to wander and explore is in all of us. Did you see a friend take an ama
 ![expense page](/tripnout7.png "expense page")
 ![expense form](/tripnout8.png "expense form")
 
-### Contributors: 
-
------------------------------------------------
-
-* [Hannie Dong](https://github.com/hanniedong)
-* [Hawken Ritter](https://github.com/hawkenritter)
-* [Ashley Teow](https://github.com/ashleyteow)
-* [Peter Thompson](https://github.com/peter6848)
-* [Rio Nose](https://github.com/rnose512)
-
 #### Resources:
 
 * [React Native Styling](https://medium.com/the-react-native-log/tips-for-styling-your-react-native-apps-3f61608655eb)
