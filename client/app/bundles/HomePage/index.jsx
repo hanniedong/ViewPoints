@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Map from './components/Map';
+import Button from './components/Button';
 import 'bootstrap';
 import PostingForm from './components/PostingForm'
 
 class HomePage extends Component {
+
+  constructor(props){
+    super(props)
+  }
+
   render() {
+    const { currentUser } = this.props
+
+    if (currentUser)
+      return (
+        <div className = 'container'>
+          <div className = 'row'>
+            <div className = 'col-md-8'>
+              <Map />
+            </div>
+            <div className = 'col-md-4'>
+              <PostingForm />
+            </div>
+
+          </div>
+        </div>
+      ) 
+    else 
     return (
       <div className = 'container'>
-        <Header />
         <div className = 'row'>
           <div className = 'col-md-8'>
             <Map />
           </div>
           <div className = 'col-md-4'>
-            <PostingForm />
+            <Button name = "Login" href="/login" />
+            <Button name = "Register" />
           </div>
 
         </div>
       </div>
-    );
+    )
   }
 }
  

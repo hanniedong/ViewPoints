@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import Header from './HomePage/components/Header';
 import 'bootstrap';
 import axios from 'axios';
+import ReactDOM from 'react-dom';
+import { Router, Route, browserHistory  } from 'react-router-dom'
 
-class App extends Component {
+export default class App extends Component {
 
 constructor(){
     super();
@@ -15,7 +19,7 @@ constructor(){
 
 componentDidMount(){
   let that = this
-  axios.get('http://localhost:3000/api/users',{
+  axios.get('http://localhost:3000/api/auth',{
   })
   .then(function(response){
     if(response.data.email){
@@ -40,16 +44,21 @@ updateCurrentUser(email) {
   }
 
   render() {
+    <Router>
+      <Route path="/hello_world" component={App} path="app" history={browserHistory}>
+        <Route path="/login" component={LoginPage}/>
+      </Route>
+    </Router>
+
     const { currentUser } = this.props;
 
 
     return (
     <div className = 'webpage-container'>
+      <Header />
       <HomePage />
     </div>
 
       )
   }
 }
- 
-export default App
