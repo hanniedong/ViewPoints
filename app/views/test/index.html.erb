@@ -1,0 +1,14 @@
+<%= form_for(@test, multipart: true) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Make a friend' %>
+    <%= link_to 'Nevermind', friends_path, class: 'button' %>
+  </div>
+<% end %>
