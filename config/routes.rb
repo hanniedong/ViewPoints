@@ -1,3 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :postings, only: [:index, :show]
+  resources :users, only: [:index, :new, :create, :show, :update]
+  resources :auth, only: [:index, :show]
+  resources :likes
+  
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
+
+  namespace :api, defaults: { format: 'json' } do
+    resources :sessions
+    resources :postings
+    resources :likes
+    resources :users
+  end
+
+  root to: 'postings#index'
 end
