@@ -1,0 +1,5 @@
+AWS_ACCESS_KEY_ID:'AKIAIVI6YGM6GTEFO6HQ'
+AWS_SECRET_ACCESS_KEY:'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'
+S3_BUCKET_NAME:'view-points'
+S3_REGION:'us-east-1'
+S3_HOST_NAME:'s3.us-east-1.amazonaws.com'
