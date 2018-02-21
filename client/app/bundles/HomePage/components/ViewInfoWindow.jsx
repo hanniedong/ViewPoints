@@ -6,28 +6,7 @@ export class ViewInfoWindow extends Component {
 
 constructor(props){
   super(props)
-  this.likePhoto = this.likePhoto.bind(this)
 }
-
-  likePhoto(user_id, posting_id){
-    console.log(user_id)
-    var self = this;
-    var url = 'http://localhost:3000/likes'
-    axios.post(url, { 
-      user_id: user_id,
-      posting_id: posting_id}
-    )
-    .then(function(response) {
-      window.location.reload()
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  }
-
-  handleClick(){
-    this.likePhoto(this.props.currentUser.id, this.props.id)
-  }
 
 
   render() {

@@ -42,7 +42,7 @@ class PostingForm extends React.Component {
 
   createPosting(){
     var self = this;
-    var url = 'http://localhost:3000/api/postings'
+    var url = '/api/postings'
     axios.post(url, this.buildFormData())
     .then(function(response) {
       window.location="/";

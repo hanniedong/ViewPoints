@@ -100,8 +100,8 @@ export default class Map extends Component {
 
   fetchPlacesFromApi() {
     var self = this;
-    var url = `http://localhost:3000/api/postings?min_lng=${this.xMapBounds.min}&max_lng=${this.xMapBounds.max}&min_lat=${this.yMapBounds.min}&max_lat=${this.yMapBounds.max}`
-    var all_url = 'http://localhost:3000/api/postings'
+    var url = `/api/postings?min_lng=${this.xMapBounds.min}&max_lng=${this.xMapBounds.max}&min_lat=${this.yMapBounds.min}&max_lat=${this.yMapBounds.max}`
+    var all_url = '/api/postings'
     axios.get(url) 
     .then(function(response){
       self.setState({ places: response.data})
