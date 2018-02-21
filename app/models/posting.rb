@@ -9,6 +9,7 @@ class Posting < ApplicationRecord
     medium: '300x300>',
     large: '700x700>'
   },
+  s3_region: ENV["S3_REGION"]
   url:':s3_domain_url',
   :path => '/:class/:attachment/:id_partition/:style/:filename'
 
