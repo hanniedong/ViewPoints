@@ -2,6 +2,7 @@
   height: 100%;
   padding-left: 3%;
   padding-right: 3%;
+  padding-bottom: 5%;
 }
 
 p{
@@ -46,7 +47,8 @@ body::after {
 }
 
 .homepage_link{
-  background-color: transparent;
+  opacity: 0.8;
+  background-color: #B77532;
   border: 2px solid white;
   color: #FFFFFF;
   border-radius: 5px;

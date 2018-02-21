@@ -22,11 +22,11 @@ constructor(props){
 }
 
  
-export default class PostingPageContainer extends Component {
+export default class EventPageContainer extends Component {
   render() {
     return (
       <App>
-        <PostingPage />
+        <EventPage />
       </App>
     );
   }
