@@ -7,7 +7,7 @@ end
 
 
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '2.10.125'
 gem 'faker'
 gem 'paperclip', '5.2.0'
 gem 'react_on_rails', '6.4.2'
