@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :show, :update]
   resources :auth, only: [:index, :show]
   resources :likes
+  resources :events, only: [:index]
   
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
