@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.3.4'
+ruby '2.4.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'aws-sdk', '~> 2'
 gem 'faker'
