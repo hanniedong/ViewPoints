@@ -18,7 +18,7 @@ constructor(props){
   likePhoto(user_id, posting_id){
     console.log(user_id)
     var self = this;
-    var url = 'http://localhost:3000/api/likes'
+    var url = '/api/likes'
     axios.post(url, { 
       user_id: user_id,
       posting_id: posting_id}
@@ -69,10 +69,12 @@ constructor(props){
             className= 'btn-lg btn-warning'>
             Like photo
           </button>
-          <div className = 'btn-wrapper' >
+          <br></br>
+          <br></br>
+          <div className = 'post_btn-wrapper' >
           <a
             href = '/'
-            className= 'btn-lg btn-style'>
+            className= 'btn-lg post_btn-style'>
             Back
           </a>
           </div>
