@@ -14,9 +14,8 @@ a:link {
   text-align: center;
 }
 
-.event_font{
-  color: #FFFFFF;
-  text-align: center;
+.event-detail_font{
+  font-size: 1em
 }
 
 .eventlist_container{
@@ -64,7 +63,7 @@ a:link {
   align-content: center;
   background-color: #B77532;
   opacity: 0.8;
-  width: 60%;
+  width: 70%;
   height: 60%;
   -webkit-box-shadow: 3px 4px 14px 3px rgba(171,171,171,0.46);
   -moz-box-shadow: 3px 4px 14px 3px rgba(171,171,171,0.46);

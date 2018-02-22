@@ -18,7 +18,8 @@ export default class EventDetail extends Component{
           <br></br>
           <div className = 'event-detail_detail'>
             <a className = 'event-detail_font' href = {url}><h6> {name} </h6></a>
-            <p> {displayDate} </p>
+            <p className = 'event-detail_font'> {displayDate} </p>
+            <p className = 'event-detail_font'> Start: {startDisplayTime} | End: {endDisplayTime}  </p>
           </div>
         </div>
       </div>
