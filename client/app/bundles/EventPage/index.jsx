@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import App from '../App'
+import SearchBar from './components/SearchBar'
 
 class EventPage extends Component {
 
 constructor(props){
   super(props)
   console.log(props)
-}
 
+  this.state = {
+    events: [],
+  };
+}
 
   render() {
     const { currentUser } = this.props
     console.log(currentUser)
     return (
       <div>
-        <h1> Events </h1>
+        <SearchBar 
+          setEvents={(events) => {this.setState({events: events})}}
+          clearEvents={() => {this.setState({events: []})}}
+        />
       </div>
     );
   }
