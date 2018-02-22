@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { TOKEN } from './key';
 import axios from 'axios';
 
+
+delete axios.defaults.headers.common["X-CSRF-Token"];
+
 export default class SearchBar extends Component {
 
   constructor(props) {
@@ -20,16 +23,13 @@ export default class SearchBar extends Component {
 
       params: {
         token: TOKEN,
-        categories: '102',
+        categories: '109',
         'location.address': this.state.city,
-        'location.within': '1mi',
-        'sort_by': 'date',
-        'q': 'tech',
-        'start_date.keyword': 'this_month'
+        'q': 'hike',
       }
     })
     .then(response => {
-      console.log(response.data);
+      this.props.setEvents(response.data)
     })
     .catch(function (error) {
       console.log(error);

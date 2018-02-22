@@ -3,6 +3,7 @@ import Map from './components/Map';
 import App from '../App'
 import 'bootstrap';
 import PostingForm from './components/PostingForm'
+import axios from 'axios'
 
 class HomePage extends Component {
 

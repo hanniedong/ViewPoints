@@ -17,12 +17,19 @@ constructor(props){
   render() {
     const { currentUser } = this.props
     console.log(currentUser)
+    console.log(this.state.events)
     return (
       <div>
         <SearchBar 
           setEvents={(events) => {this.setState({events: events})}}
           clearEvents={() => {this.setState({events: []})}}
         />
+      
+        <a
+          href = '/'
+          className= 'btn-lg homepage_link'>
+          Back
+        </a>
       </div>
     );
   }
