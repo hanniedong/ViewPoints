@@ -48,8 +48,8 @@ export default class SearchBar extends Component {
 
   render(){
     return(
-      <div > 
-        <form onSubmit = {this.handleSubmit.bind(this)}>
+      <div className = 'searchbar' > 
+        <form className = 'form-inline' onSubmit = {this.handleSubmit.bind(this)}>
           <input
             className = "form-control"
             name = "city"
@@ -58,7 +58,7 @@ export default class SearchBar extends Component {
             onChange = {this.handleInputChange.bind(this)}
           />
           <button 
-            className = "btn" 
+            className = "btn btn-warning eventpage_button" 
             type= "submit"> Submit
           </button>
         </form>

@@ -37,7 +37,7 @@ export default class EventList extends Component{
   render(){
 
     return(
-      <div className = 'container'>
+      <div className = 'eventlist_container'>
         <img className="eventbrite_img" src="http://www.wixeventviewer.com/images/powered_by_eventbrite.png" alt=""/>
         {this.renderEvents()}
       </div>

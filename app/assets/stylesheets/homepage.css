@@ -9,6 +9,7 @@ p{
   font-size: 1.2em;
   font-weight: 300
 }
+
 body::after {
   content: "";
   background-image: url("http://blog.hellobc.com/wp-content/uploads/2015/10/Cypress-Mountain.jpg");
@@ -47,7 +48,7 @@ body::after {
 }
 
 .homepage_link{
-  opacity: 0.8;
+  opacity: 1;
   background-color: #B77532;
   border: 2px solid white;
   color: #FFFFFF;
