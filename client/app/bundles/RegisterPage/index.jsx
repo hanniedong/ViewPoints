@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import App from '../App';
 import axios from 'axios';
 
+
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const api = axios.create({
+    headers: {
+      'X-CSRF-Token': token
+    }
+});
+
+
 class RegisterPage extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +33,7 @@ class RegisterPage extends Component {
   }
 
   createUser(firstName, lastName, email, password){
-    axios.post("/api/users", {
+    api.post("/api/users", {
         first_name: firstName,
         last_name: lastName,
         email: email,

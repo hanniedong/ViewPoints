@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { TOKEN } from './key';
 import axios from 'axios';
 
-
-delete axios.defaults.headers.common["X-CSRF-Token"];
-
 export default class SearchBar extends Component {
 
   constructor(props) {

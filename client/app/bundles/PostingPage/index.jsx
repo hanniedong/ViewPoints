@@ -2,6 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import App from '../App'
 
+
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const api = axios.create({
+    headers: {
+      'X-CSRF-Token': token
+    }
+});
+
+
 class PostingPage extends Component {
 
 constructor(props){
@@ -19,7 +28,7 @@ constructor(props){
     console.log(user_id)
     var self = this;
     var url = '/api/likes'
-    axios.post(url, { 
+    api.post(url, { 
       user_id: user_id,
       posting_id: posting_id}
     )
