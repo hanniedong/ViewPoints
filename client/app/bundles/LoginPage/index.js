@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import App from '../App'
 import axios from 'axios'
+
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const api = axios.create({
+    headers: {
+      'X-CSRF-Token': token
+    }
+});
+
 class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -21,11 +29,12 @@ class LoginPage extends Component {
   }
 
   loginUser = (email, password) => {
-    axios.post("/api/sessions", {
+    api.post("/api/sessions", {
       email: email,
       password: password
     })
     .then(function(response) {
+      console.log(response)
       window.location = "/";
     })
     .catch(function(error) {

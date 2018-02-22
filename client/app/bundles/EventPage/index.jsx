@@ -3,6 +3,7 @@ import axios from 'axios'
 import App from '../App'
 import SearchBar from './components/SearchBar'
 import EventList from './components/EventList'
+import Header from '../HomePage/components/Header';
 
 class EventPage extends Component {
 
@@ -21,6 +22,7 @@ constructor(props){
     console.log(this.state.events)
     const { events } = this.state.events;
     return (
+      <div>
       <div className = 'eventpage_container'>
         <SearchBar 
           setEvents={(events) => {this.setState({events: events})}}
@@ -33,11 +35,10 @@ constructor(props){
           Back
         </a>
       </div>
+      </div>
     );
   }
 }
-
- 
 export default class EventPageContainer extends Component {
   render() {
     return (

@@ -3,8 +3,6 @@ import { TOKEN } from './key';
 import axios from 'axios';
 
 
-delete axios.defaults.headers.common["X-CSRF-Token"];
-
 export default class SearchBar extends Component {
 
   constructor(props) {
@@ -18,9 +16,10 @@ export default class SearchBar extends Component {
   handleSubmit(event){
     event.preventDefault();
     this.props.clearEvents()
-
-    axios.get('https://www.eventbriteapi.com/v3/events/search/', {
-
+    const axiosCrossDomain = axios.create();
+    delete axiosCrossDomain.defaults.headers.common['X-CSRF-Token']
+    console.log(axiosCrossDomain.defaults.headers.common)
+    axiosCrossDomain.get('https://www.eventbriteapi.com/v3/events/search/', {
       params: {
         token: TOKEN,
         categories: '109',
@@ -30,6 +29,7 @@ export default class SearchBar extends Component {
     })
     .then(response => {
       this.props.setEvents(response.data)
+      axios.defaults.headers.common['X-CSRF-Token']
     })
     .catch(function (error) {
       console.log(error);
@@ -47,6 +47,7 @@ export default class SearchBar extends Component {
   }
 
   render(){
+
     return(
       <div className = 'searchbar' > 
         <form className = 'form-inline' onSubmit = {this.handleSubmit.bind(this)}>

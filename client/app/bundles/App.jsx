@@ -3,9 +3,13 @@ import Header from './HomePage/components/Header';
 import 'bootstrap';
 import axios from 'axios';
 
-axios.defaults.headers.common['X-CSRF-Token'] = document
-  .querySelector('meta[name="csrf-token"]')
-  .getAttribute('content');
+
+const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+const api = axios.create({
+    headers: {
+      'X-CSRF-Token': token
+    }
+});
 
 export default class App extends Component {
 
@@ -19,7 +23,9 @@ constructor(){
 
 componentDidMount(){
   let that = this
-  axios.get('/api/sessions',{
+  console.log(token)
+  api.get('/api/sessions',{
+  headers: {'X-CSRF-Token': token}
   })
   .then(function(response){
     if(response.data.email){
@@ -44,7 +50,6 @@ updateCurrentUser(email) {
   }
 
   render() {
-
     const { currentUser } = this.state;
     const modifiedChild = React.cloneElement(this.props.children, {
       currentUser
