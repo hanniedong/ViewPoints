@@ -1,26 +1,17 @@
-.header{
-  margin: 40px;
-}
-
-.viewpoint{
-  margin: 0;
-  font-size: 100px;
-  font-family: 'Palatino', sans-serif;
-  color: #A9A9A9;
-  text-shadow: 0.5px 0.5px darkgrey;
-  text-align: center;
-}
-
 .header {
   font-family: 'Ubuntu', sans-serif;
-  color: #21B421;
-  text-shadow: 0.5px 0.5px darkgrey;
+  color: #FFFFFF;
   font-size: 1.6em;
   text-align: center;
 }
 
 .header h1 {
   border-bottom: 2px solid;
+  text-shadow: 0.5px 0.5px darkgrey;
   margin-right: auto;
   margin-left: auto;
+}
+.header h4 {
+  margin-top: 20px;
+  font-style: italic;
 }

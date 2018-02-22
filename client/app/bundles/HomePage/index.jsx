@@ -3,6 +3,7 @@ import Map from './components/Map';
 import App from '../App'
 import 'bootstrap';
 import PostingForm from './components/PostingForm'
+import axios from 'axios'
 
 class HomePage extends Component {
 
@@ -25,6 +26,11 @@ class HomePage extends Component {
               <PostingForm user = {currentUser} />
                 <a 
                   className="btn-lg homepage_link align-center" 
+                  href= '/events'>
+                  Wanderlust Events
+                </a>
+                <a 
+                  className="btn-lg homepage_link align-center" 
                   href= '/logout' >
                   Logout
                 </a> 
@@ -40,6 +46,11 @@ class HomePage extends Component {
             <Map />
           </div>
           <div className = 'col-md-2 homepage_button'>
+            <a 
+              className="btn-lg homepage_link" 
+              href= '/events'>
+              Wanderlust Events
+            </a>
             <a 
               className="btn-lg homepage_link" 
               href= '/login'>
