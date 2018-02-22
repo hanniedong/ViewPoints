@@ -95,7 +95,7 @@ class RegisterPage extends Component {
         <div className = 'form-group'>
           <button 
             className = 'btn-lg btn-style' 
-            type="submit"> Login 
+            type="submit"> Register 
           </button>
         </div>
         </form>

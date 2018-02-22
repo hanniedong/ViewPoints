@@ -57,7 +57,7 @@ export default class Map extends Component {
   constructor(props) {
     super(props)
  
-    this.zoom = 13
+    this.zoom = 12
     this.xMapBounds = {min: null, max: null}
     this.yMapBounds = {min: null, max: null}
     this.mapFullyLoaded = false

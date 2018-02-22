@@ -17,8 +17,9 @@ export default class EventDetail extends Component{
           <img className = 'event-detail_image' src={image} alt=""/>
           <br></br>
           <div className = 'event-detail_detail'>
-            <a className = 'event-detail_font' href = {url}><h6> {name} </h6></a>
-            <p> {displayDate} </p>
+            <a className = 'event-detail_font link-size' href = {url}><h6> {name} </h6></a>
+            <p className = 'event-detail_font'> {displayDate} </p>
+            <p className = 'event-detail_font'> Start: {startDisplayTime} | End: { endDisplayTime} </p>
           </div>
         </div>
       </div>

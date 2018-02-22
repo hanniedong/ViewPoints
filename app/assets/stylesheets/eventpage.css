@@ -1,7 +1,3 @@
-a:link {
-  color: #4D4D4D;
-  text-decoration: none;
-}
 
 .eventpage_container{
   display: flex;
@@ -14,9 +10,11 @@ a:link {
   text-align: center;
 }
 
-.event_font{
-  color: #FFFFFF;
+.event-detail_font{
+  color: #4D4D4D;
+  text-decoration: none;
   text-align: center;
+  font-size: 1em;
 }
 
 .eventlist_container{
@@ -64,8 +62,9 @@ a:link {
   align-content: center;
   background-color: #B77532;
   opacity: 0.8;
-  width: 60%;
+  width: 75%;
   height: 60%;
+  padding: 2px;
   -webkit-box-shadow: 3px 4px 14px 3px rgba(171,171,171,0.46);
   -moz-box-shadow: 3px 4px 14px 3px rgba(171,171,171,0.46);
   box-shadow: 3px 4px 14px 3px rgba(171,171,171,0.46);
